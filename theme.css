@@ -1,0 +1,228 @@
+/* ============================================================
+   Nexus — Spectrum Theme  v1.0.0
+   Author: ResofireV2
+   ============================================================
+   Philosophy:
+   - Two-column card grid feed
+   - Each card has a 3px top border coloured by its space
+   - Clean light-only theme — surfaces locked via theme.json
+   - No font override — Inter stays, spacing does the work
+   - Accent color is the admin's choice throughout
+   ============================================================ */
+
+/* ── Light mode only ─────────────────────────────────────── */
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+[data-theme="light"] .sidebar {
+  background: var(--s1) !important;
+  border-right: 0.5px solid var(--b1) !important;
+}
+[data-theme="light"] .sb-logo {
+  border-bottom: 0.5px solid var(--b1) !important;
+}
+[data-theme="light"] .sb-item:hover {
+  background: var(--s2) !important;
+}
+[data-theme="light"] .sb-user {
+  border-top: 0.5px solid var(--b1) !important;
+}
+
+/* ── Topbar ──────────────────────────────────────────────── */
+[data-theme="light"] .topbar {
+  background: var(--s1) !important;
+  border-bottom: 0.5px solid var(--b1) !important;
+}
+
+/* ── Feed header ─────────────────────────────────────────── */
+[data-theme="light"] .feed-header {
+  background: var(--s1) !important;
+  border-bottom: 0.5px solid var(--b1) !important;
+}
+
+/* ── Feed list → 2-column card grid ─────────────────────── */
+[data-theme="light"] .feed-list {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  padding: 12px !important;
+  align-content: start !important;
+  overflow-y: auto !important;
+}
+
+/* Non-thread children (new-posts banner, loading, empty state)
+   span both columns so they don't land in a single cell gap */
+[data-theme="light"] .feed-list > div:not(.thread) {
+  grid-column: 1 / -1 !important;
+}
+
+/* ── Thread card ─────────────────────────────────────────── */
+[data-theme="light"] .thread {
+  background: var(--s1) !important;
+  border: 0.5px solid var(--b1) !important;
+  border-radius: 10px !important;
+  border-bottom: 0.5px solid var(--b1) !important;
+  overflow: hidden !important;
+  transition: border-color 0.1s, background 0.1s !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+[data-theme="light"] .thread:hover {
+  background: var(--s1) !important;
+  border-color: var(--b2) !important;
+}
+
+/* Pinned card: subtle accent tint */
+[data-theme="light"] .thread--pinned {
+  background: var(--ac-bg) !important;
+  border-color: var(--ac-border) !important;
+}
+[data-theme="light"] .thread--pinned .thread-title {
+  color: var(--t1) !important;
+}
+[data-theme="light"] .thread--pinned .thread-preview {
+  color: var(--t3) !important;
+  opacity: 1 !important;
+}
+
+/* thread-main becomes a column so accent bar sits on top */
+[data-theme="light"] .thread-main {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  flex: 1 !important;
+}
+
+/* thread-accent: was a 3px vertical stripe, now a 3px horizontal top bar */
+[data-theme="light"] .thread-accent {
+  width: 100% !important;
+  height: 3px !important;
+  align-self: auto !important;
+  flex-shrink: 0 !important;
+  border-radius: 0 !important;
+  order: -1 !important;
+}
+
+/* Hide the avatar column — cards don't show OP avatar */
+[data-theme="light"] .thread-av-wrap {
+  display: none !important;
+}
+
+/* Thread body: add horizontal padding now that avatar is gone */
+[data-theme="light"] .thread-body {
+  padding: 10px 12px 0 12px !important;
+  align-self: auto !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+/* Space tag above title */
+[data-theme="light"] .thread-tags-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin-bottom: 5px !important;
+}
+[data-theme="light"] .thread-tags-col {
+  display: none !important;
+}
+[data-theme="light"] .thread-top-tags {
+  display: none !important;
+}
+
+/* Thread tag chip */
+[data-theme="light"] .thread-tag {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  padding: 2px 7px !important;
+  border-radius: 20px !important;
+  letter-spacing: .3px !important;
+  text-transform: uppercase !important;
+}
+
+/* Title: allow 2-line wrap */
+[data-theme="light"] .thread-title {
+  white-space: normal !important;
+  overflow: hidden !important;
+  text-overflow: unset !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--t1) !important;
+  line-height: 1.4 !important;
+  margin-bottom: 5px !important;
+}
+
+/* Preview: 2-line clamp */
+[data-theme="light"] .thread-preview {
+  white-space: normal !important;
+  overflow: hidden !important;
+  text-overflow: unset !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  font-size: 11px !important;
+  color: var(--t3) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 8px !important;
+}
+
+/* Participants row: footer of the card */
+[data-theme="light"] .participants-row {
+  padding: 0 0 10px !important;
+  margin-top: auto !important;
+}
+[data-theme="light"] .part-label {
+  font-size: 11px !important;
+  color: var(--t4) !important;
+}
+
+/* Participant avatar overlap border against card bg */
+[data-theme="light"] .pav {
+  border-color: var(--s1) !important;
+  width: 20px !important;
+  height: 20px !important;
+  font-size: 8px !important;
+  border-radius: 6px !important;
+}
+[data-theme="light"] .thread--pinned .pav {
+  border-color: var(--ac-bg) !important;
+}
+
+/* Hide the thread-meta column (reply count + last activity)
+   reply count is surfaced via participants-row part-label */
+[data-theme="light"] .thread-meta {
+  display: none !important;
+}
+
+/* Bookmark button: reposition to top-right of card */
+[data-theme="light"] .thread-save-btn {
+  top: 10px !important;
+  left: auto !important;
+  right: 8px !important;
+}
+
+/* ── Right panel ─────────────────────────────────────────── */
+[data-theme="light"] .right-panel {
+  background: var(--bg) !important;
+  border-left: 0.5px solid var(--b1) !important;
+}
+[data-theme="light"] .rw {
+  background: var(--s1) !important;
+  border: 0.5px solid var(--b1) !important;
+}
+[data-theme="light"] .rw-label {
+  color: var(--t4) !important;
+}
+[data-theme="light"] .stat-card {
+  background: var(--s2) !important;
+}
+[data-theme="light"] .stat-n {
+  color: var(--t1) !important;
+}
+[data-theme="light"] .p-bar-wrap {
+  background: var(--b1) !important;
+}
+
+/* ── Post page — keep normal list layout ─────────────────── */
+/* Nothing to override — post page doesn't use feed-list */

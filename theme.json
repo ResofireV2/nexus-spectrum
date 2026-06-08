@@ -1,0 +1,28 @@
+{
+  "manifest_version": 1,
+  "name": "Spectrum",
+  "slug": "nexus-spectrum",
+  "version": "1.0.0",
+  "author": "ResofireV2",
+  "description": "Two-column card grid feed. Each card's top border is coloured by space. Clean light theme.",
+  "homepage": "https://github.com/ResofireV2/nexus-theme-spectrum",
+  "categories": ["light", "grid", "clean"],
+  "modes": {
+    "light": {
+      "variables": {
+        "--bg":  "#f0f0f2",
+        "--s1":  "#ffffff",
+        "--s2":  "#f4f4f6",
+        "--s3":  "#e8e8eb",
+        "--t1":  "#111111",
+        "--t2":  "rgba(17,17,17,0.70)",
+        "--t3":  "rgba(17,17,17,0.50)",
+        "--t4":  "rgba(17,17,17,0.30)",
+        "--t5":  "rgba(17,17,17,0.18)",
+        "--b1":  "rgba(17,17,17,0.06)",
+        "--b2":  "rgba(17,17,17,0.10)",
+        "--b3":  "rgba(17,17,17,0.14)"
+      }
+    }
+  }
+}
