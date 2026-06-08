@@ -65,6 +65,7 @@
   transition: border-color 0.1s, background 0.1s !important;
   display: flex !important;
   flex-direction: column !important;
+  min-height: 140px !important;
 }
 [data-theme="light"] .thread:hover {
   background: var(--s1) !important;
@@ -112,6 +113,8 @@
   align-self: auto !important;
   flex: 1 !important;
   min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 /* Space tag above title */
@@ -159,18 +162,20 @@
   overflow: hidden !important;
   text-overflow: unset !important;
   display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
+  -webkit-line-clamp: 3 !important;
   -webkit-box-orient: vertical !important;
-  font-size: 11px !important;
+  font-size: 12px !important;
   color: var(--t3) !important;
-  line-height: 1.5 !important;
-  margin-bottom: 8px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 10px !important;
+  flex: 1 !important;
 }
 
 /* Participants row: footer of the card */
 [data-theme="light"] .participants-row {
-  padding: 0 0 10px !important;
+  padding: 8px 0 12px !important;
   margin-top: auto !important;
+  flex-shrink: 0 !important;
 }
 [data-theme="light"] .part-label {
   font-size: 11px !important;
